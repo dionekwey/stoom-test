@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,12 +34,12 @@ public class Address implements Serializable {
 	private String country;
 	@NotBlank
 	private String zipcode;
-	private Long latitude;
-	private Long longitude;
+	private BigDecimal latitude;
+	private BigDecimal longitude;
 
 	public Address(@NotNull Long id, @NotBlank String streetName, @NotNull Long number, String complement,
 			@NotBlank String neighbourhood, @NotBlank String city, @NotBlank String state, @NotBlank String country,
-			@NotBlank String zipcode, Long latitude, Long longitude) {
+			@NotBlank String zipcode, BigDecimal latitude, BigDecimal longitude) {
 		super();
 		this.id = id;
 		this.streetName = streetName;
@@ -125,19 +126,19 @@ public class Address implements Serializable {
 		this.zipcode = zipcode;
 	}
 
-	public Long getLatitude() {
+	public BigDecimal getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Long latitude) {
+	public void setLatitude(BigDecimal latitude) {
 		this.latitude = latitude;
 	}
 
-	public Long getLongitude() {
+	public BigDecimal getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Long longitude) {
+	public void setLongitude(BigDecimal longitude) {
 		this.longitude = longitude;
 	}
 
