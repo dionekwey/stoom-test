@@ -2,16 +2,19 @@ package com.example.demo.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class User implements Serializable {
+@Entity
+public class Address implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -33,7 +36,7 @@ public class User implements Serializable {
 	private Long latitude;
 	private Long longitude;
 
-	public User(@NotNull Long id, @NotBlank String streetName, @NotNull Long number, String complement,
+	public Address(@NotNull Long id, @NotBlank String streetName, @NotNull Long number, String complement,
 			@NotBlank String neighbourhood, @NotBlank String city, @NotBlank String state, @NotBlank String country,
 			@NotBlank String zipcode, Long latitude, Long longitude) {
 		super();
@@ -154,7 +157,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Address other = (Address) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
